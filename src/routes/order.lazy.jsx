@@ -133,7 +133,7 @@ function Order() {
               <Pizza
                 name={selectedPizza.name}
                 description={selectedPizza.description}
-                images={selectedPizza.image}
+                image={selectedPizza.image}
               />
               <p>{price}</p>
             </div>
