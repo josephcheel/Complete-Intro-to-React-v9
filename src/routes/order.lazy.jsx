@@ -42,6 +42,10 @@ function Order() {
     fetchPizzaTypes();
   }, []);
 
+  function addToCart() {
+    setCart([...cart, { pizza: selectedPizza, size: pizzaSize, price }]);
+  }
+
   async function checkout() {
     setLoading(true);
 
@@ -55,19 +59,12 @@ function Order() {
     setCart([]);
     setLoading(false);
   }
+
   return (
     <section className="order-page">
       <section className="order">
         <h2>Order Page</h2>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setCart([
-              ...cart,
-              { pizza: selectedPizza, size: pizzaSize, price },
-            ]);
-          }}
-        >
+        <form action={addToCart}>
           <div>
             <div>
               <label htmlFor="pizza-type">Pizza Type</label>
